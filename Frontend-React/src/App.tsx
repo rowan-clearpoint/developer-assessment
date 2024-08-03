@@ -3,9 +3,9 @@ import { Image, Alert, Button, Container, Row, Col, Form, Table, Stack } from 'r
 import React, { useState, useEffect, ChangeEventHandler } from 'react'
 
 interface TodoItem {
-  id: number;
-  description: string;
-  completed: boolean;
+  id: number
+  description: string
+  completed: boolean
 }
 
 const App = () => {
