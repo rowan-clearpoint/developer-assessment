@@ -1,8 +1,12 @@
 import './App.css'
 import { Image, Alert, Button, Container, Row, Col, Form, Table, Stack } from 'react-bootstrap'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ChangeEventHandler } from 'react'
 
-const axios = require('axios')
+interface TodoItem {
+  id: number
+  description: string
+  completed: boolean
+}
 
 const App = () => {
   const [description, setDescription] = useState('')
@@ -62,7 +66,7 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            {items.map((item) => (
+            {items.map((item: TodoItem) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.description}</td>
@@ -79,7 +83,7 @@ const App = () => {
     )
   }
 
-  const handleDescriptionChange = (event) => {
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // todo
   }
 
@@ -103,7 +107,7 @@ const App = () => {
     setDescription('')
   }
 
-  async function handleMarkAsComplete(item) {
+  async function handleMarkAsComplete(item: TodoItem) {
     try {
       alert('todo')
     } catch (error) {
