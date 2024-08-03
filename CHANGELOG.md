@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file. This includ
     - Fixed: Bug fixes or resolutions to issues.
     - Updated: Updated dependency versions
 
+## [2.0.0] - 2024-08-04
+### Changed
+- The frontend react app has been migrated from javascript to typescript for improvements such as TypeScript's static type checking to help catch errors at compile time rather than runtime, reducing bugs and improving code reliability.
+
 ## [1.0.0] - 2024-08-04
 ### Added
 - Added this file `CHANGELOG.md` to track version changes.
