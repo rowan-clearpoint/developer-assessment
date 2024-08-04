@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import { Image, Alert, Button, Container, Row, Col, Form, Table, Stack } from 'react-bootstrap'
 import React, { useState, useEffect, ChangeEventHandler } from 'react'
 
