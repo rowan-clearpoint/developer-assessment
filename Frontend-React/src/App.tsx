@@ -1,8 +1,9 @@
 import './styles/App.css'
-import { Image, Alert, Button, Container, Row, Col, Form, Table, Stack } from 'react-bootstrap'
+import { Image, Alert, Container, Row, Col } from 'react-bootstrap'
 import React from 'react'
 import AddTodoItemForm from './components/AddTodoItemForm'
 import TodoItemList from './components/TodoItemList'
+import ClearPointFooter from './components/ClearPointFooter'
 
 const App = () => {
   return (
@@ -48,14 +49,7 @@ const App = () => {
           </Col>
         </Row>
       </Container>
-      <footer className="page-footer font-small teal pt-4">
-        <div className="footer-copyright text-center py-3">
-          © 2021 Copyright:
-          <a href="https://clearpoint.digital" target="_blank" rel="noreferrer">
-            clearpoint.digital
-          </a>
-        </div>
-      </footer>
+      <ClearPointFooter/>
     </div>
   )
 }
