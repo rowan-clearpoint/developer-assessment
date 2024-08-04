@@ -1,6 +1,7 @@
 import './styles/App.css'
 import { Image, Alert, Button, Container, Row, Col, Form, Table, Stack } from 'react-bootstrap'
 import React, { useState, useEffect, ChangeEventHandler } from 'react'
+import AddTodoItemForm from './components/AddTodoItemForm'
 
 interface TodoItem {
   id: number
@@ -9,43 +10,11 @@ interface TodoItem {
 }
 
 const App = () => {
-  const [description, setDescription] = useState('')
   const [items, setItems] = useState([])
 
   useEffect(() => {
     // todo
   }, [])
-
-  const renderAddTodoItemContent = () => {
-    return (
-      <Container>
-        <h1>Add Item</h1>
-        <Form.Group as={Row} className="mb-3" controlId="formAddTodoItem">
-          <Form.Label column sm="2">
-            Description
-          </Form.Label>
-          <Col md="6">
-            <Form.Control
-              type="text"
-              placeholder="Enter description..."
-              value={description}
-              onChange={handleDescriptionChange}
-            />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3 offset-md-2" controlId="formAddTodoItem">
-          <Stack direction="horizontal" gap={2}>
-            <Button variant="primary" onClick={() => handleAdd()}>
-              Add Item
-            </Button>
-            <Button variant="secondary" onClick={() => handleClear()}>
-              Clear
-            </Button>
-          </Stack>
-        </Form.Group>
-      </Container>
-    )
-  }
 
   const renderTodoItemsContent = () => {
     return (
@@ -83,28 +52,12 @@ const App = () => {
     )
   }
 
-  const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // todo
-  }
-
   async function getItems() {
     try {
       alert('todo')
     } catch (error) {
       console.error(error)
     }
-  }
-
-  async function handleAdd() {
-    try {
-      alert('todo')
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  function handleClear() {
-    setDescription('')
   }
 
   async function handleMarkAsComplete(item: TodoItem) {
@@ -147,7 +100,9 @@ const App = () => {
           </Col>
         </Row>
         <Row>
-          <Col>{renderAddTodoItemContent()}</Col>
+          <Col>
+            <AddTodoItemForm/>
+          </Col>
         </Row>
         <br />
         <Row>
