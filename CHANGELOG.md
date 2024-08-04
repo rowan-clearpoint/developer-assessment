@@ -9,6 +9,25 @@ All notable changes to this project will be documented in this file. This includ
     - Fixed: Bug fixes or resolutions to issues.
     - Updated: Updated dependency versions
 
+## [2.0.1] - 2024-08-04
+### Changed
+- Rearranged the frontend react project structure to:
+```
+src/
+  assets/               # Static assets like images, fonts, etc.
+  components/           # Reusable UI components
+    common/             # Common reusable components
+    todo/               # Specific components for the todo feature
+  models/               # TypeScript interfaces and types
+    todo/               # Specific models for the todo feature
+  pages/                # Page components
+  styles/               # Global and module CSS/SCSS files
+  App.tsx               # Main app component
+  index.tsx             # Entry point for React
+  reportWebVitals.ts
+  setupTests.ts         # Setup for tests
+```
+
 ## [2.0.0] - 2024-08-04
 ### Changed
 - The frontend react app has been migrated from javascript to typescript for improvements such as TypeScript's static type checking to help catch errors at compile time rather than runtime, reducing bugs and improving code reliability.
