@@ -1,9 +1,9 @@
 import './styles/App.css'
 import { Image, Alert, Container, Row, Col } from 'react-bootstrap'
 import React from 'react'
-import AddTodoItemForm from './components/AddTodoItemForm'
-import TodoItemList from './components/TodoItemList'
-import ClearPointFooter from './components/ClearPointFooter'
+import AddTodoItemForm from './components/todo/AddTodoItemForm'
+import TodoItemList from './components/todo/TodoItemList'
+import ClearPointFooter from './components/common/ClearPointFooter'
 
 const App = () => {
   return (
