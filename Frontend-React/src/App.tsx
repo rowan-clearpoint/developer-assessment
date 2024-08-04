@@ -1,73 +1,10 @@
 import './styles/App.css'
 import { Image, Alert, Button, Container, Row, Col, Form, Table, Stack } from 'react-bootstrap'
-import React, { useState, useEffect, ChangeEventHandler } from 'react'
+import React from 'react'
 import AddTodoItemForm from './components/AddTodoItemForm'
-
-interface TodoItem {
-  id: number
-  description: string
-  completed: boolean
-}
+import TodoItemList from './components/TodoItemList'
 
 const App = () => {
-  const [items, setItems] = useState([])
-
-  useEffect(() => {
-    // todo
-  }, [])
-
-  const renderTodoItemsContent = () => {
-    return (
-      <>
-        <h1>
-          Showing {items.length} Item(s){' '}
-          <Button variant="primary" className="pull-right" onClick={() => getItems()}>
-            Refresh
-          </Button>
-        </h1>
-
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Description</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item: TodoItem) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.description}</td>
-                <td>
-                  <Button variant="warning" size="sm" onClick={() => handleMarkAsComplete(item)}>
-                    Mark as completed
-                  </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </>
-    )
-  }
-
-  async function getItems() {
-    try {
-      alert('todo')
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  async function handleMarkAsComplete(item: TodoItem) {
-    try {
-      alert('todo')
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   return (
     <div className="App">
       <Container>
@@ -106,7 +43,9 @@ const App = () => {
         </Row>
         <br />
         <Row>
-          <Col>{renderTodoItemsContent()}</Col>
+          <Col>
+            <TodoItemList/>
+          </Col>
         </Row>
       </Container>
       <footer className="page-footer font-small teal pt-4">
