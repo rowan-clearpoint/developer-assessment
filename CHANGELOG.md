@@ -9,6 +9,24 @@ All notable changes to this project will be documented in this file. This includ
     - Fixed: Bug fixes or resolutions to issues.
     - Updated: Updated dependency versions
 
+## [2.1.0] - 2024-08-07
+### Added
+- Add the ability to add (POST) a Todo Item by calling the backend API
+- The ability to surface any errors from the backend API in the UI. Note 500 errors are intentionally not surfaced to avoid revealing unintended information.
+- Added unit test coverage for the backend.
+
+### Changed
+- Rearranged the backend project structure to:
+```
+TodoList.Api/
+  Controllers/          # The entry points for handling HTTP requests.
+  Middleware/           # Middleware components which are used to handle cross-cutting concerns such as logging
+  Models/               # Data models that represent the application's data structures, including validation rules and other attributes.
+  Repositories/         # Repository classes handle data access and retrieval from the database providing an abstraction layer between the application logic and the data source.
+  Services/             # Service classes implement the business logic of the application
+  Validations/          # Custom validation attributes and classes used to enforce business rules and data integrity on data models
+```
+
 ## [2.0.1] - 2024-08-04
 ### Changed
 - Rearranged the frontend react project structure to:

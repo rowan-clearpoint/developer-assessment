@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using TodoList.Api.Models;
+using TodoList.Api.Services;
 
 namespace TodoList.Api.Controllers
 {
@@ -12,12 +14,12 @@ namespace TodoList.Api.Controllers
     public class TodoItemsController : ControllerBase
     {
         private readonly TodoContext _context;
-        private readonly ILogger<TodoItemsController> _logger;
+        private readonly ITodoItemsService _todoItemsService;
 
-        public TodoItemsController(TodoContext context, ILogger<TodoItemsController> logger)
+        public TodoItemsController(TodoContext context, ITodoItemsService todoItemsService)
         {
             _context = context;
-            _logger = logger;
+            _todoItemsService = todoItemsService;
         }
 
         // GET: api/TodoItems
@@ -76,17 +78,7 @@ namespace TodoList.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> PostTodoItem(TodoItem todoItem)
         {
-            if (string.IsNullOrEmpty(todoItem?.Description))
-            {
-                return BadRequest("Description is required");
-            }
-            else if (TodoItemDescriptionExists(todoItem.Description))
-            {
-                return BadRequest("Description already exists");
-            } 
-
-            _context.TodoItems.Add(todoItem);
-            await _context.SaveChangesAsync();
+            await _todoItemsService.CreateTodoItemAsync(todoItem);
              
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         } 
@@ -94,12 +86,6 @@ namespace TodoList.Api.Controllers
         private bool TodoItemIdExists(Guid id)
         {
             return _context.TodoItems.Any(x => x.Id == id);
-        }
-
-        private bool TodoItemDescriptionExists(string description)
-        {
-            return _context.TodoItems
-                   .Any(x => x.Description.ToLowerInvariant() == description.ToLowerInvariant() && !x.IsCompleted);
         }
     }
 }
