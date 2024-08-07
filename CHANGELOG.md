@@ -26,6 +26,7 @@ TodoList.Api/
   Services/             # Service classes implement the business logic of the application
   Validations/          # Custom validation attributes and classes used to enforce business rules and data integrity on data models
 ```
+
 ## [2.0.1] - 2024-08-04
 ### Changed
 - Rearranged the frontend react project structure to:
